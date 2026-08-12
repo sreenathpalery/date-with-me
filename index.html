@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Go On A Date With Me? 🥰💖</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💖</text></svg>">
+</head>
+<body>
+
+  <!-- Floating Background Animated Particles Canvas -->
+  <canvas id="bg-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Audio Toggle Button -->
+  <button id="audio-toggle-btn" class="audio-toggle" title="Toggle Sound">
+    <span id="audio-icon">🎵</span> <span id="audio-label">Sound On</span>
+  </button>
+
+  <!-- Floating Decorative Stickers -->
+  <img src="assets/flower.png" alt="Flower Sticker" class="sticker sticker-1">
+  <img src="assets/bear.png" alt="Bear Sticker" class="sticker sticker-2">
+  <img src="assets/flower.png" alt="Flower Sticker" class="sticker sticker-3">
+  <img src="assets/bear.png" alt="Bear Sticker" class="sticker sticker-4">
+
+  <!-- Main Card Container -->
+  <div class="main-wrapper">
+    <div class="card">
+      
+      <!-- ================= STEP 1: THE PROPOSAL ================= -->
+      <div id="step-1" class="step-screen active">
+        <div class="illustration-box">
+          <img src="assets/bear.png" alt="Cute Teddy Bear">
+        </div>
+        <h1 class="title">Will you go on a date with me? 🥰</h1>
+        <p class="subtitle">I promise it will be full of laughter, yummy treats & cute memories! 🌸✨</p>
+        
+        <div class="button-group" id="step-1-btn-group">
+          <button id="btn-yes" class="btn btn-yes">Yes! 💖</button>
+          <button id="btn-no" class="btn btn-no">No 😜</button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 2: THE SHOCK ================= -->
+      <div id="step-2" class="step-screen">
+        <div class="illustration-box">
+          <img src="assets/flower.png" alt="Cute Flower Smiley">
+        </div>
+        <h1 class="title">Wait you actually said yes?? 😳💖</h1>
+        <p class="subtitle small-text">i was so ready for you to say no 😊</p>
+        
+        <div class="button-group">
+          <button id="btn-step-2-next" class="btn btn-primary">Okay okay! 💖</button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 3: DATE, TIME & LOCATION ================= -->
+      <div id="step-3" class="step-screen">
+        <h1 class="title">So.. when are you free? 🗓️✨</h1>
+        <p class="subtitle">Pick the perfect time and place for our special day! 🌸</p>
+
+        <div class="options-container">
+          <!-- Date Selection -->
+          <div class="option-group">
+            <div class="option-label">📅 Select Date</div>
+            <div class="chip-grid" id="date-chips">
+              <div class="chip selected" data-value="This Friday 🌟">This Friday 🌟</div>
+              <div class="chip" data-value="This Saturday 🎈">This Saturday 🎈</div>
+              <div class="chip" data-value="This Sunday 🍦">This Sunday 🍦</div>
+              <div class="chip" data-value="Next Weekend 💖">Next Weekend 💖</div>
+            </div>
+            <input type="date" id="custom-date-picker" class="custom-input" placeholder="Or pick a custom date">
+          </div>
+
+          <!-- Time Selection -->
+          <div class="option-group">
+            <div class="option-label">⏰ Select Time</div>
+            <div class="chip-grid" id="time-chips">
+              <div class="chip selected" data-value="Golden Hour 🌅 (5:30 PM)">Golden Hour 🌅</div>
+              <div class="chip" data-value="Dinner Time 🍕 (7:00 PM)">Dinner Time 🍕</div>
+              <div class="chip" data-value="Stargazing 🌌 (8:30 PM)">Stargazing 🌌</div>
+              <div class="chip" data-value="Surprise Time 🎁">Surprise Time 🎁</div>
+            </div>
+            <input type="time" id="custom-time-picker" class="custom-input" placeholder="Custom time">
+          </div>
+
+          <!-- Location Selection -->
+          <div class="option-group">
+            <div class="option-label">📍 Select Location</div>
+            <div class="chip-grid" id="location-chips">
+              <div class="chip selected" data-value="Cozy Cafe ☕">Cozy Cafe ☕</div>
+              <div class="chip" data-value="Romantic Park Picnic 🧺">Park Picnic 🧺</div>
+              <div class="chip" data-value="Secret Surprise Spot 🤫">Secret Spot 🤫</div>
+              <div class="chip" data-value="Fancy Dinner Spot 🍽️">Fancy Spot 🍽️</div>
+            </div>
+            <input type="text" id="custom-location-input" class="custom-input" placeholder="Or write your favorite place... 🌸">
+          </div>
+        </div>
+
+        <div class="button-group">
+          <button id="btn-step-3-next" class="btn btn-primary">Next: Pick the Vibe! 🍴🍵 ✨</button>
+        </div>
+      </div>
+
+      <!-- ================= STEP 4: PICK YOUR VIBE ================= -->
+      <div id="step-4" class="step-screen">
+        <h1 class="title">What are we feeling? 🍴🍵</h1>
+        <p class="subtitle">Select your favorite vibes for our date! (You can pick more than one! ✨)</p>
+
+        <div class="vibe-grid" id="vibe-grid">
+          <div class="vibe-card selected" data-vibe="Cozy Coffee & Pastries 🥐☕">
+            <span class="vibe-icon">☕</span>
+            <span class="vibe-title">Coffee & Treats</span>
+          </div>
+          <div class="vibe-card" data-vibe="Fancy Dinner & Dessert 🍝🍰">
+            <span class="vibe-icon">🍝</span>
+            <span class="vibe-title">Fancy Dinner</span>
+          </div>
+          <div class="vibe-card" data-vibe="Ice Cream & Evening Walk 🍦🌙">
+            <span class="vibe-icon">🍦</span>
+            <span class="vibe-title">Ice Cream Walk</span>
+          </div>
+          <div class="vibe-card" data-vibe="Sunset Picnic & Photos 🧺📸">
+            <span class="vibe-icon">🧺</span>
+            <span class="vibe-title">Sunset Picnic</span>
+          </div>
+          <div class="vibe-card" data-vibe="Arcade & Fun Games 👾🎯">
+            <span class="vibe-icon">👾</span>
+            <span class="vibe-title">Arcade Games</span>
+          </div>
+          <div class="vibe-card" data-vibe="Sushi & Movie Night 🍣🎬">
+            <span class="vibe-icon">🍣</span>
+            <span class="vibe-title">Sushi & Movie</span>
+          </div>
+        </div>
+
+        <div class="option-group" style="text-align: left; margin-bottom: 20px;">
+          <div class="option-label">✨ Anything else you want to do?</div>
+          <input type="text" id="custom-vibe-input" class="custom-input" placeholder="e.g. Get boba, take cute photos... 💕">
+        </div>
+
+        <div class="button-group">
+          <button id="btn-step-4-lock" class="btn btn-primary">Lock It In! 🔒💖</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FINAL GREETING MODAL POPUP ================= -->
+  <div id="modal-popup" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      <div class="illustration-box" style="width: 100px; height: 100px; margin-bottom: 10px;">
+        <img src="assets/bear.png" alt="Cute Teddy Bear Celebration">
+      </div>
+      
+      <h2 class="title" style="font-size: 2rem; margin-bottom: 10px;">YAY! IT'S A DATE! 🎉💖</h2>
+      <p class="subtitle" style="margin-bottom: 15px;">I can't wait to spend this amazing time with you! You just made my entire week 🥰✨</p>
+
+      <!-- Souvenir Ticket Card -->
+      <div class="ticket-box">
+        <div class="ticket-header">
+          <span>💌 DATE CONFIRMATION PASS</span>
+          <span>#001</span>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">📅 Date:</div>
+          <div class="ticket-value" id="ticket-date">This Friday 🌟</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">⏰ Time:</div>
+          <div class="ticket-value" id="ticket-time">Golden Hour 🌅</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">📍 Location:</div>
+          <div class="ticket-value" id="ticket-location">Cozy Cafe ☕</div>
+        </div>
+        <div class="ticket-item">
+          <div class="ticket-label">🍴 Vibe(s):</div>
+          <div class="ticket-value" id="ticket-vibe">Coffee & Treats</div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-actions">
+        <button id="btn-whatsapp" class="btn btn-whatsapp">
+          <span>📱 Send to Him on WhatsApp</span>
+        </button>
+        <button id="btn-copy" class="btn btn-secondary">
+          <span>📋 Copy Date Ticket Summary</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
